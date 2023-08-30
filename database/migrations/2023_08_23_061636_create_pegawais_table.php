@@ -14,12 +14,13 @@ return new class extends Migration
         Schema::create('pegawais', function (Blueprint $table) {
             $table->id();
             $table->string('nama_lengkap');
-            $table->string('email');
+            $table->string('nip');
+            $table->string('email')->unique();
             $table->string('hp');
-            $table->enum('jenis',['PNS','CPNS','P3K','TKD','Non PNS']);
+            $table->string('jenis');
             $table->enum('jenis_kelamin',['laki-laki','perempuan']);
             $table->string('foto')->nullable();
-            $table->text('alamat');
+            $table->text('alamat')->nullable();
             $table->string('tempat_lahir');
             $table->date('tanggal_lahir');
             $table->timestamps();

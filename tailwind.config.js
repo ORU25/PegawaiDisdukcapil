@@ -7,7 +7,8 @@ export default {
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
-        "./node_modules/flowbite/**/*.js"
+        "./node_modules/flowbite/**/*.js",
+        './vendor/rappasoft/laravel-livewire-tables/resources/views/**/*.blade.php',
     ],
 
     theme: {
@@ -20,9 +21,9 @@ export default {
     
 
     plugins: [
-        forms,
         require('flowbite/plugin')({
             charts: true,
         }),
+        forms,
     ],
 };

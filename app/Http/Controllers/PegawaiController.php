@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pegawai;
 use Illuminate\Http\Request;
 
 class PegawaiController extends Controller
@@ -11,7 +12,8 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        //
+        $pegawai = Pegawai::all();
+        return view('pegawai.index')->with('pegawai',$pegawai);
     }
 
     /**
@@ -19,7 +21,7 @@ class PegawaiController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -27,7 +29,42 @@ class PegawaiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_lengkap' => 'required',
+            'nip' => 'required',
+            'hp' => 'required',
+            'email' => 'required | email',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required | date',
+            'jenis' => 'required',
+            'jenis_kelamin' => 'required',
+            'alamat' => '',
+            'foto' => 'image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+        try {
+            $pegawai = new Pegawai;
+            $pegawai->nama_lengkap = $request->nama_lengkap;
+            $pegawai->nip = $request->nip;
+            $pegawai->hp = $request->hp;
+            $pegawai->email = $request->email;
+            $pegawai->tempat_lahir = $request->tempat_lahir;
+            $pegawai->tanggal_lahir = $request->tanggal_lahir;
+            $pegawai->jenis = $request->jenis;
+            $pegawai->jenis_kelamin = $request->jenis_kelamin;
+            $pegawai->alamat = $request->alamat;
+            if ($request->file('foto')) {
+                # code...
+                $filefoto = $request->file('foto');
+                $fileasli = $filefoto->getClientOriginalName();
+                $uploadfoto =$filefoto->move(public_path().'/foto_pegawai/',$fileasli);
+                $pegawai->foto = $fileasli;
+            }
+
+            $pegawai->save();
+        } catch (\Exception $e) {
+            return redirect()->back()->with('errors','Pegawai Gagal Ditambah');
+        }
+        return redirect()->back()->with('sukses','Pegawai Berhasil Ditambah');
     }
 
     /**
@@ -57,8 +94,14 @@ class PegawaiController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $nip)
     {
-        //
+        try {
+            $pegawai = Pegawai::where('nip',$nip)->first();
+            $pegawai->delete();
+        } catch (\Throwable $th) {
+            return redirect()->back()->with('errors','Pegawai Gagal Dihapus');
+        }
+        return redirect()->back()->with('sukses','Pegawai Berhasil Dihapus');
     }
 }

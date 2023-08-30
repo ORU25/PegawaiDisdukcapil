@@ -5,15 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Pegawai;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class DtailPegawaiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($nip)
     {
-        $pegawai = Pegawai::all();
-        return view('dashboard')->with('pegawai',$pegawai);
+        $pegawai = Pegawai::where('nip', $nip)->first();
+        return view('pegawai.dtail')->with('pegawai',$pegawai);
     }
 
     /**
