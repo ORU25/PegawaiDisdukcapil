@@ -29,19 +29,10 @@ class PegawaiTable extends DataTableComponent
                         ->location(fn($row) => route('dtail', $row->nip))
                         ->attributes(function($row) {
                             return [
-                                'class' => 'fa-solid fa-eye',
+                                'class' => 'fa-solid fa-eye ',
                             ];
                         }),
                     
-                    LinkColumn::make('Delete')
-                        ->title(fn($row) => '')
-                        ->location(fn($row) => route('dashboard', $row))
-                        ->attributes(function($row) {
-                            return [
-                                // 'target' => '_blank',
-                                'class' => 'fa-solid fa-trash',
-                            ];
-                        }),
             ]),
             Column::make('NAMA', 'nama_lengkap')
                 ->sortable()

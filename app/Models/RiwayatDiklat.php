@@ -18,6 +18,6 @@ class RiwayatDiklat extends Model
     ];
 
     public function pegawai(){
-        return $this->belongsTo('App/Models/Pegawai');
+        return $this->belongsTo(Pegawai::class);
     }
 }

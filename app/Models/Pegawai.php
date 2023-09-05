@@ -23,18 +23,21 @@ class Pegawai extends Model
     ];
 
     public function keluarga(){
-        return $this->hasMany('App/Models/Keluarga');
+        return $this->hasMany(Keluarga::class);
     }
     public function riwayat_pendidikan(){
-        return $this->hasMany('App/Models/RiwayatPendidikan');
+        return $this->hasMany(RiwayatPendidikan::class);
     }
     public function riwayat_diklat(){
-        return $this->hasMany('App/Models/RiwayatDiklat');
+        return $this->hasMany(RiwayatDiklat::class);
     }
     public function golongan(){
-        return $this->hasOne('App/Models/Golongan');
+        return $this->hasOne(Golongan::class);
     }
     public function jabatan(){
-        return $this->hasOne('App/Models/Jabatan');
+        return $this->hasOne(Jabatan::class);
+    }
+    public function gaji(){
+        return $this->hasOne(Gaji::class);
     }
 }

@@ -5,17 +5,17 @@
           <button data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar" type="button" class="inline-flex items-center p-2 text-sm  rounded-lg sm:hidden  focus:outline-none focus:ring-2  text-gray-400 hover:bg-gray-700 focus:ring-gray-600">
               <span class="sr-only">Open sidebar</span>
               <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                 <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
+                 <path clip-rule="evenodd"  fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
               </svg>
            </button>
           <a href="/" class="flex ml-2 md:mr-24">
             {{-- <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="SIKP logo" /> --}}
             
-            <div class="h-10 mr-3 relative w-10  overflow-hidden bg-gray-100 rounded-sm dark:bg-gray-600">
+            {{-- <div class="h-10 mr-3 relative w-10  overflow-hidden bg-gray-100 rounded-sm dark:bg-gray-600">
               <svg class="absolute w-12 h-12 text-gray-400 -left-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
-            </div>
+            </div> --}}
 
-            <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap text-white">SIKP</span>
+            <span class="self-center text-4xl font-semibold sm:text-4xl whitespace-nowrap text-cyan-400">SIKP</span>
           </a>
         </div>
         <div class="flex items-center">
@@ -61,7 +61,7 @@
      <div class="h-full px-3 pb-4 overflow-y-auto bg-gray-800">
         <ul class="space-y-2 font-large">
            <li>
-              <a href="{{ route('dashboard')}}" class="flex items-center p-2  rounded-lg text-white  hover:bg-gray-600 group">
+              <a href="{{ route('dashboard')}}" class="flex items-center p-2  rounded-lg text-white  hover:bg-gradient-to-br from-gray-600 to-gray-500 group">
                 <i class="fa-solid fa-chart-pie "></i>
                  <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" class="text-white ">
                     {{ __('Dashboard') }}
@@ -69,7 +69,7 @@
               </a>
            </li>
            <li>
-              <a href="{{  route('pegawai') }}" class="flex items-center p-2  rounded-lg text-white  hover:bg-gray-600 group">
+              <a href="{{  route('pegawai') }}" class="flex items-center p-2  rounded-lg text-white  hover:bg-gradient-to-br from-gray-600 to-gray-500 group">
                  <i class="fa-solid fa-user-tie px-0.5"></i>
                  <x-nav-link :href="route('pegawai')" :active="request()->routeIs('pegawai')" class="text-white ">
                     {{ __('Pegawai') }}

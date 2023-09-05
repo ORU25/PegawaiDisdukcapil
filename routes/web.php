@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\RiwayatPendidikan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,29 @@ Route::middleware('auth')->group(function () {
     Route::get('/pegawai', [PegawaiController::class, 'index'])->name('pegawai');
     Route::post('/pegawai/store', [PegawaiController::class, 'store'])->name('pegawai.store');
     Route::get('/pegawai/{nip}', [DtailPegawaiController::class, 'index'])->name('dtail');
+    Route::put('/pegawai/{id}', [DtailPegawaiController::class, 'update'])->name('pegawai.update');
+    Route::delete('/pegawai/{nip}', [PegawaiController::class, 'destroy'])->name('pegawai.delete');
+
+    Route::get('/pegawai/{nip}/pendidikan',[PendidikanController::class, 'index'])->name('pendidikan');
+    Route::post('/pegawai/{nip}/pendidikan/store', [PendidikanController::class, 'store'])->name('pendidikan.store');
+    Route::put('/pegawai/pendidikan/{id}', [PendidikanController::class, 'update'])->name('pendidikan.update');
+    Route::delete('/pegawai/pendidikan/{id}', [PendidikanController::class, 'destroy'])->name('pendidikan.delete');
+    
+    Route::get('/pegawai/{id}/diklat',[DiklatController::class, 'index'])->name('diklat');
+    Route::post('/pegawai/{id}/diklat/store', [DiklatController::class, 'store'])->name('diklat.store');
+    Route::put('/pegawai/diklat/{id}', [DiklatController::class, 'update'])->name('diklat.update');
+    Route::delete('/pegawai/diklat/{id}', [DiklatController::class, 'destroy'])->name('diklat.delete');
+
+    Route::post('/pegawai/keluarga/{id}', [KeluargaController::class, 'store'])->name('keluarga.store');
+    Route::put('/pegawai/keluarga/{id}', [KeluargaController::class, 'update'])->name('keluarga.update');
+    Route::delete('/pegawai/keluarga/{id}', [KeluargaController::class, 'destroy'])->name('keluarga.delete');
+
+    Route::post('/pegawai/kenaikanGaji/store/{id}', [GajiController::class, 'store'])->name('gaji.store');
+    Route::put('/pegawai/kenaikanGaji/{id}', [GajiController::class, 'update'])->name('gaji.update');
+    Route::delete('/pegawai/kenaikanGaji/{id}', [GajiController::class, 'destroy'])->name('gaji.delete');
+    Route::post('/pegawai/kenaikanJabatan/store/{id}', [JabatanController::class, 'store'])->name('jabatan.store');
+    Route::put('/pegawai/kenaikanJabatan/{id}', [JabatanController::class, 'update'])->name('jabatan.update');
+    Route::delete('/pegawai/kenaikanJabatan/{id}', [JabatanController::class, 'destroy'])->name('jabatan.delete');
 });
 
 require __DIR__.'/auth.php';

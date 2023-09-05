@@ -5,7 +5,7 @@
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
-        <!-- Email Address -->
+        <!-- username -->
         <div>
             <x-input-label for="username" :value="__('username')" />
             <x-text-input id="username" class="block mt-1 w-full" type="text" name="username" :value="old('username')" required autofocus autocomplete="username" />
@@ -39,7 +39,7 @@
                 </a>
             @endif --}}
 
-            <x-primary-button class="ml-3">
+            <x-primary-button class="ml-3 bg-cyan-700 hover:bg-cyan-500">
                 {{ __('Log in') }}
             </x-primary-button>
         </div>

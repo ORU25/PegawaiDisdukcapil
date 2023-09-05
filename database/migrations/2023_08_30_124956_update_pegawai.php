@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jabatans', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('pegawai_id');
-            $table->foreign('pegawai_id')->references('id')->on('pegawais')->onDelete('cascade');
-            $table->date('kenaikan_jabatan');
-            $table->timestamps();
+        Schema::table('pegawais', function (Blueprint $table) {
+            $table->string('hp')->nullable()->change();
         });
     }
 
@@ -25,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('jabatans');
+        Schema::table('pegawai', function (Blueprint $table) {
+            //
+        });
     }
 };

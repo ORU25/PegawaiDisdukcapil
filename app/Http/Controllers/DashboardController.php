@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gaji;
+use App\Models\Jabatan;
 use App\Models\Pegawai;
+use App\Charts\PegawaiChart;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -10,10 +13,20 @@ class DashboardController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(PegawaiChart $chart)
     {
         $pegawai = Pegawai::all();
-        return view('dashboard')->with('pegawai',$pegawai);
+
+        $bulanSaatIni = now()->month;
+
+        $gaji = Gaji::where('bulan', $bulanSaatIni)
+        ->orderBy('tanggal')
+        ->get();
+        $jabatan = Jabatan::where('bulan', $bulanSaatIni)
+        ->orderBy('tanggal')
+        ->get();
+
+        return view('dashboard', ['chart' => $chart->build()])->with('pegawai',$pegawai)->with('gaji',$gaji)->with('jabatan',$jabatan);
     }
 
     /**

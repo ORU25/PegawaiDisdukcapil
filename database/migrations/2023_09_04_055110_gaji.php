@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('pegawai_id');
             $table->foreign('pegawai_id')->references('id')->on('pegawais')->onDelete('cascade');
-            $table->date('kenaikan_gaji');
+            $table->unsignedBigInteger('tanggal');
+            $table->unsignedBigInteger('bulan');
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('gajis');
+        //
     }
 };

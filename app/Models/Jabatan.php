@@ -11,10 +11,11 @@ class Jabatan extends Model
 
     protected $fillable = [
         'pegawai_id',
-        'kenaikan_jabatan',
+        'tanggal',
+        'bulan'
     ];
 
     public function pegawai(){
-        return $this->belongsTo('App/Model/pegawai');
+        return $this->belongsTo(Pegawai::class);
     }
 }

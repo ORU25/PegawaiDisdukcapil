@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jabatan;
 use Illuminate\Http\Request;
 
 class JabatanController extends Controller
@@ -25,9 +26,23 @@ class JabatanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
-        //
+        $request->validate([
+            'tanggal' => 'required',
+            'bulan' => 'required',
+        ]);
+        try {
+           $jabatan = new Jabatan;
+           $jabatan->pegawai_id = $id;
+           $jabatan->tanggal = $request->tanggal;
+           $jabatan->bulan = $request->bulan;
+           $jabatan->save();
+
+        } catch (\Exception $e) {
+            return redirect()->back()->with('errors','Kenaikan Jabatan Gagal Ditambah');
+        }
+        return redirect()->back()->with('sukses','Kenaikan Jabatan Berhasil Ditambah');
     }
 
     /**
@@ -51,7 +66,21 @@ class JabatanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'tanggal' => 'required',
+            'bulan' => 'required',
+        ]);
+        try {
+           $jabatan = Jabatan::where('pegawai_id',$id)->first();
+           $jabatan->pegawai_id = $id;
+           $jabatan->tanggal = $request->tanggal;
+           $jabatan->bulan = $request->bulan;
+           $jabatan->save();
+
+        } catch (\Exception $e) {
+            return redirect()->back()->with('errors','Kenaikan Jabatan Gagal Diubah');
+        }
+        return redirect()->back()->with('sukses','Kenaikan Jabatan Berhasil Diubah');
     }
 
     /**
@@ -59,6 +88,13 @@ class JabatanController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $jabatan = Jabatan::where('pegawai_id',$id)->first();
+            $jabatan->delete();
+ 
+         } catch (\Exception $e) {
+             return redirect()->back()->with('errors','Kenaikan Jabatan Gagal Dihapus');
+         }
+         return redirect()->back()->with('sukses','Kenaikan Jabatan Berhasil Dihapus');
     }
 }
