@@ -70,9 +70,17 @@
            </li>
            <li>
               <a href="{{  route('pegawai') }}" class="flex items-center p-2  rounded-lg text-white  hover:bg-gradient-to-br from-gray-600 to-gray-500 group">
-                 <i class="fa-solid fa-user-tie px-0.5"></i>
+                 <i class="fa-solid fa-users "></i>
                  <x-nav-link :href="route('pegawai')" :active="request()->routeIs('pegawai')" class="text-white ">
                     {{ __('Pegawai') }}
+                </x-nav-link>
+              </a>
+           </li>
+           <li>
+              <a href="{{  route('jabatan') }}" class="flex items-center p-2  rounded-lg text-white  hover:bg-gradient-to-br from-gray-600 to-gray-500 group">
+                 <i class="fa-solid fa-user-tie px-0.5"></i>
+                 <x-nav-link :href="route('jabatan')" :active="request()->routeIs('jabatan')" class="text-white ">
+                    {{ __('Jabatan') }}
                 </x-nav-link>
               </a>
            </li>

@@ -37,20 +37,22 @@ class PegawaiTable extends DataTableComponent
             Column::make('NAMA', 'nama_lengkap')
                 ->sortable()
                 ->searchable(),
-                
             Column::make('NIP', 'nip')
+                ->sortable()
+                ->searchable(),
+            Column::make('JABATAN', 'jabatan.nama_jabatan')
                 ->sortable()
                 ->searchable(),
             Column::make('JENIS', 'jenis')
                 ->sortable()
                 ->searchable(),
-            Column::make('EMAIL', 'email')
+            Column::make('PANGKAT', 'golongan.pangkat')
+                ->sortable()
+                ->searchable(),
+            Column::make('GOLONGAN', 'golongan.golongan')
                 ->sortable()
                 ->searchable(),
             Column::make('HP', 'hp')
-                ->sortable()
-                ->searchable(),
-            Column::make('Tanggal Lahir', 'tanggal_lahir')
                 ->sortable()
                 ->searchable(),
            

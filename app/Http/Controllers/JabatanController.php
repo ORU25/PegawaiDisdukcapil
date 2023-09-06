@@ -12,7 +12,8 @@ class JabatanController extends Controller
      */
     public function index()
     {
-        //
+        $jabatan = Jabatan::all();
+        return view('jabatan.index')->with('jabatan',$jabatan);
     }
 
     /**
@@ -26,23 +27,16 @@ class JabatanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request,$id)
-    {
-        $request->validate([
-            'tanggal' => 'required',
-            'bulan' => 'required',
-        ]);
-        try {
-           $jabatan = new Jabatan;
-           $jabatan->pegawai_id = $id;
-           $jabatan->tanggal = $request->tanggal;
-           $jabatan->bulan = $request->bulan;
-           $jabatan->save();
-
+    public function store(Request $request)
+    {   
+        try{
+            $jabatan = new Jabatan;
+            $jabatan->nama_jabatan = $request->nama_jabatan;
+            $jabatan->save();
         } catch (\Exception $e) {
-            return redirect()->back()->with('errors','Kenaikan Jabatan Gagal Ditambah');
+            return redirect()->back()->with('errors','Jabatan Gagal Ditambah');
         }
-        return redirect()->back()->with('sukses','Kenaikan Jabatan Berhasil Ditambah');
+        return redirect()->back()->with('sukses','Jabatan Berhasil Ditambah');
     }
 
     /**
@@ -66,21 +60,14 @@ class JabatanController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            'tanggal' => 'required',
-            'bulan' => 'required',
-        ]);
-        try {
-           $jabatan = Jabatan::where('pegawai_id',$id)->first();
-           $jabatan->pegawai_id = $id;
-           $jabatan->tanggal = $request->tanggal;
-           $jabatan->bulan = $request->bulan;
-           $jabatan->save();
-
+        try{
+            $jabatan = Jabatan::find($id);
+            $jabatan->nama_jabatan = $request->nama_jabatan;
+            $jabatan->save();
         } catch (\Exception $e) {
-            return redirect()->back()->with('errors','Kenaikan Jabatan Gagal Diubah');
+            return redirect()->back()->with('errors','Jabatan Gagal Diedit');
         }
-        return redirect()->back()->with('sukses','Kenaikan Jabatan Berhasil Diubah');
+        return redirect()->back()->with('sukses','Jabatan Berhasil Diedit');
     }
 
     /**
@@ -88,13 +75,12 @@ class JabatanController extends Controller
      */
     public function destroy(string $id)
     {
-        try {
-            $jabatan = Jabatan::where('pegawai_id',$id)->first();
+        try{
+            $jabatan = Jabatan::find($id);
             $jabatan->delete();
- 
-         } catch (\Exception $e) {
-             return redirect()->back()->with('errors','Kenaikan Jabatan Gagal Dihapus');
-         }
-         return redirect()->back()->with('sukses','Kenaikan Jabatan Berhasil Dihapus');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('errors','Jabatan Gagal Dihapus');
+        }
+        return redirect()->back()->with('sukses','Jabatan Berhasil Dihapus');
     }
 }

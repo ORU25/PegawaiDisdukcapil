@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gaji;
 use App\Models\Jabatan;
+use App\Models\kenaikanPangkat;
 use App\Models\Pegawai;
 use App\Charts\PegawaiChart;
 use Illuminate\Http\Request;
@@ -13,20 +14,27 @@ class DashboardController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(PegawaiChart $chart)
+    public function index(PegawaiChart $chart) 
     {
-        $pegawai = Pegawai::all();
+        $jabatan = Jabatan::all();
 
+        $kadis = Jabatan::where('nama_jabatan','Kepala Dinas')->first();
+        $sekretaris = Jabatan::where('nama_jabatan','Sekretaris')->first();
+        $kabidDaduk = Jabatan::where('nama_jabatan','Kabid Pelayanan Pendaftaran Penduduk')->first();
+        $kabidCapil = Jabatan::where('nama_jabatan','Kabid Pelayanan Pencatatan Sipil')->first();
+        $kabidPiak = Jabatan::where('nama_jabatan','Kabid Pengelolaan Informasi Administrasi Kependudukan dan Pemanfaatan Data')->first();
+
+        $tahunSaatIni = now()->year;
         $bulanSaatIni = now()->month;
 
-        $gaji = Gaji::where('bulan', $bulanSaatIni)
+        $gaji = Gaji::where('bulan', $bulanSaatIni+1)
         ->orderBy('tanggal')
         ->get();
-        $jabatan = Jabatan::where('bulan', $bulanSaatIni)
-        ->orderBy('tanggal')
+        $pangkat = kenaikanPangkat::where('tahun', $tahunSaatIni)
+        ->orderBy('bulan')
         ->get();
 
-        return view('dashboard', ['chart' => $chart->build()])->with('pegawai',$pegawai)->with('gaji',$gaji)->with('jabatan',$jabatan);
+        return view('dashboard', ['chart' => $chart->build()])->with('kadis',$kadis)->with('sekretaris',$sekretaris)->with('kabidDaduk',$kabidDaduk)->with('kabidCapil',$kabidCapil)->with('kabidPiak',$kabidPiak)->with('gaji',$gaji)->with('pangkat',$pangkat);
     }
 
     /**

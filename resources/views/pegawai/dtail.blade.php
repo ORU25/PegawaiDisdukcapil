@@ -91,11 +91,29 @@
                                             
                                         </div>
                                         <div class="relative">
+                                            <input type="text" id="nik" name="nik" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " value="{{ $pegawai->nik }}" />
+                                            <label for="nik" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">NIK</label>
+                                            
+                                        </div>
+                                        <div class="relative">
                                             <input type="text" id="nip" name="nip" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " value="{{ $pegawai->nip }}" required />
                                             <label for="nip" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">NIP</label>
                                             
                                         </div>
+                                        <div class="relative">
+                                            <label for="jabatan" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2.5 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Jabatan</label>
+                                                <select id="jabatan" name="jabatan" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                    <option value="{{ $pegawai->jabatan->id }}">{{ $pegawai->jabatan->nama_jabatan }}</option>
+                                                    @foreach ($jabatan as $jabatan)
+                                                    <option value="{{ $jabatan->id }}">{{ $jabatan->nama_jabatan }}</option>
+                                                    @endforeach
+                                                </select>
+                                        </div>
                                         @if ($pegawai->golongan)    
+                                        <div class="relative">
+                                            <input type="text" id="pangkat" name="pangkat" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " value="{{ $pegawai->golongan->pangkat }}" />
+                                            <label for="pangkat" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Pangkat</label>
+                                        </div> 
                                         <div class="relative">
                                             <input type="text" id="golongan" name="golongan" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " value="{{ $pegawai->golongan->golongan }}" />
                                             <label for="golongan" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Golongan</label>
@@ -104,6 +122,10 @@
                                         <div class="relative">
                                             <input type="text" id="golongan" name="golongan" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " value=""  />
                                             <label for="golongan" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Golongan</label>
+                                        </div>                     
+                                        <div class="relative">
+                                            <input type="text" id="pangkat" name="pangkat" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " value=""  />
+                                            <label for="pangkat" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Pangkat</label>
                                         </div>                     
                                         @endif                             
                                         <div class="relative">
@@ -130,7 +152,7 @@
                                                 <label for="jenis" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2.5 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Jenis Karyawan</label>
                                                 <select id="jenis" name="jenis" class="w-36 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                                     <option value="{{ $pegawai->jenis }}">{{ $pegawai->jenis }}</option>
-                                                    <option value="Pegawai">PEGAWAI</option>
+                                                    <option value="ASN">ASN</option>
                                                     <option value="TKD">TKD</option>
                                                 </select>
 
@@ -218,21 +240,39 @@
                     @endif
                     
                     <dl class=" text-gray-900 divide-y divide-gray-200 dark:text-white dark:divide-gray-700">
-                        <div class="flex flex-col pb-3">
+                        {{-- <div class="flex flex-col pb-3">
                             <dt class="mb-1 text-gray-500 text-sm dark:text-gray-400">Nama Lengkap</dt>
                             <dd class="text-sm font-semibold">{{ $pegawai->nama_lengkap }}</dd>
-                        </div>
-                        <div class="flex flex-col py-3">
-                            <dt class="mb-1 text-gray-500 text-sm dark:text-gray-400">NIP</dt>
-                            <dd class="text-sm font-semibold">{{ $pegawai->nip }}</dd>
+                        </div> --}}
+                        <div class="flex flex-wrap">
+                            <div class="flex flex-col pb-3 me-5">
+                                <dt class="mb-1 text-gray-500 text-sm dark:text-gray-400">NIK</dt>
+                                @if ($pegawai->nik)
+                                <dd class="text-sm font-semibold">{{ $pegawai->nik }}</dd>
+                                @else
+                                <div class="flex text-gray-500 font-semibold text-sm mt-1">
+                                    <i class="fa-solid fa-file-circle-xmark  me-1"></i>
+                                    Data kosong
+                                </div>
+                                @endif
+                            </div>
+                            <div class="flex flex-col pb-3">
+                                <dt class="mb-1 text-gray-500 text-sm dark:text-gray-400">NIP</dt>
+                                <dd class="text-sm font-semibold">{{ $pegawai->nip }}</dd>
+                            </div>
                         </div>
                         <div class="flex flex-col py-3">
                             <dt class="mb-1 text-gray-500 text-sm dark:text-gray-400">Jenis</dt>
                             <dd class="text-sm font-semibold">{{ $pegawai->jenis }}</dd>
                         </div>
+                        <div class="flex flex-col py-3">
+                            <dt class="mb-1 text-gray-500 text-sm dark:text-gray-400">Jabatan</dt>
+                            <dd class="text-sm font-semibold">{{ $pegawai->jabatan->nama_jabatan }}</dd>
+                        </div>
                         <div class="flex flex-col pt-3">
-                            <dt class="mb-1 text-gray-500 text-sm dark:text-gray-400">Golongan</dt>
-                            @if ($pegawai->golongan)    
+                            <dt class="mb-1 text-gray-500 text-sm dark:text-gray-400">Pangkat dan Golongan</dt>
+                            @if ($pegawai->golongan) 
+                                <dd class="text-sm font-semibold">{{ $pegawai->golongan->pangkat }}</dd>
                                 <dd class="text-sm font-semibold">{{ $pegawai->golongan->golongan }}</dd>
                             @else
                             <div class="flex text-gray-500 font-semibold text-sm mt-1">
@@ -596,7 +636,7 @@
                                             <div class="flex justify-evenly">                           
                                                 <div class="relative mt-3 sm:mt-0">
                                                     <label for="tanggal" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2.5 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Tanggal</label>
-                                                    <select id="tanggal" name="tanggal" class="w-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                                    <select id="tanggal" name="tanggal" class="sm:w-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                                                         <option selected value="{{ $pegawai->gaji->tanggal }}">{{ $pegawai->gaji->tanggal }}</option>
                                                         <?php
                                                         $pilihanHari = range(1, 31);
@@ -615,7 +655,7 @@
                                                 </div>
                                                 <div class="relative mt-3 sm:mt-0">
                                                     <label for="bulan" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2.5 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Bulan</label>
-                                                    <select id="bulan" name="bulan" class="w-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                                    <select id="bulan" name="bulan" class="sm:w-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                                                         <option selected value="{{ $pegawai->gaji->bulan }}">
                                                             <?php
                                                             $angkaBulan = $pegawai->gaji->bulan;
@@ -700,15 +740,15 @@
 
                 </div>
 
-                {{-- Kenaikan Jabatan --}}
+                {{-- Kenaikan pangkat --}}
                 <div class="lg:ps-2 w-full mt-3 lg:mt-0 lg:w-1/2">
                     <div class="px-6 py-4 bg-gray-100 overflow-hidden shadow-sm rounded-lg">
                         <div class="mb-3 flex justify-between">
                             <div class="font-semibold">
-                                Tanggal Kenaikan Gaji
+                                Tanggal Kenaikan Pangkat
                             </div>
                             <div class="flex">
-                                @if (!$pegawai->jabatan)    
+                                @if (!$pegawai->kenaikanPangkat)    
                                 <button data-modal-target="tambah_jabatan" data-modal-toggle="tambah_jabatan" type="button" class="flex text-white bg-gradient-to-br from-green-400 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-xs px-3 py-1.5 text-center mr-2 mb-2">
                                     <i class="fa-solid fa-plus me-1 pt-0.5"></i>
                                     <div>
@@ -731,18 +771,18 @@
                                 @endif
                             </div>
                         </div>
-                        @if ($pegawai->jabatan)  
+                        @if ($pegawai->kenaikanPangkat)  
                         <div class="text-center py-10 bg-gray-50 rounded-lg border border-gray-200 ">
-                            <h1 class="text-gray-700 text-4xl font-extrabold leading-none tracking-tigh">{{ $pegawai->jabatan->tanggal }} / 
+                            <h1 class="text-gray-700 text-4xl font-extrabold leading-none tracking-tigh">
                                 <?php
-                                $angkaBulan = $pegawai->jabatan->bulan;
+                                $angkaBulan = $pegawai->kenaikanPangkat->bulan;
                                 $namaBulan = date('F', mktime(0, 0, 0, $angkaBulan, 1));
                                 echo $namaBulan;
-                                ?>
+                                ?> / {{ $pegawai->kenaikanPangkat->tahun }}
                             </h1>
                         </div>
 
-                         {{-- Edit jabatan --}}
+                         {{-- Edit pangkat--}}
                          <div id="edit_jabatan" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                             <div class="relative w-full max-w-2xl max-h-full">
                                 <!-- Modal content -->
@@ -759,37 +799,18 @@
                                             <span class="sr-only">Close modal</span>
                                         </button>
                                     </div>
-                                    <form action="{{ route('jabatan.update',$pegawai->id) }}" method="POST" class="" enctype="multipart/form-data">
+                                    <form action="{{ route('pangkat.update',$pegawai->id) }}" method="POST" class="" enctype="multipart/form-data">
                                         @method("PUT")
                                         @csrf
                                         <!-- Modal body -->
                                         <div class="p-6 space-y-6">
                                             <div class="flex justify-evenly">                           
                                                 <div class="relative mt-3 sm:mt-0">
-                                                    <label for="tanggal" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2.5 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Tanggal</label>
-                                                    <select id="tanggal" name="tanggal" class="w-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                                                        <option selected value="{{ $pegawai->jabatan->tanggal }}">{{ $pegawai->jabatan->tanggal }}</option>
-                                                        <?php
-                                                        $pilihanHari = range(1, 31);
-                                                        $tanggalAda = $pegawai->jabatan->tanggal; // Simpan tanggal yang sudah ada
-
-                                                        for ($hari = 1; $hari <= 31; $hari++) {
-                                                            // Lewatkan tanggal yang sudah ada
-                                                            if ($hari == $tanggalAda) {
-                                                                continue;
-                                                            }
-
-                                                            echo '<option value="' . $hari . '">' . $hari . '</option>';
-                                                        }
-                                                        ?>
-                                                    </select>                           
-                                                </div>
-                                                <div class="relative mt-3 sm:mt-0">
                                                     <label for="bulan" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2.5 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Bulan</label>
-                                                    <select id="bulan" name="bulan" class="w-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                                                        <option selected value="{{ $pegawai->jabatan->bulan }}">
+                                                    <select id="bulan" name="bulan" class="sm:w-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                                        <option selected value="{{ $pegawai->kenaikanPangkat->bulan }}">
                                                             <?php
-                                                            $angkaBulan = $pegawai->jabatan->bulan;
+                                                            $angkaBulan = $pegawai->kenaikanPangkat->bulan;
                                                             $namaBulan = date('F', mktime(0, 0, 0, $angkaBulan, 1));
                                                             echo $namaBulan;
                                                             ?>
@@ -807,6 +828,12 @@
                                                         <option value="11">November</option>
                                                         <option value="12">Desember</option>
                                                     </select>                           
+                                                </div>
+                                                <div class="relative mt-3 sm:mt-0">
+                                                    <div class="relative sm:w-52">
+                                                        <input type="number" id="tahun" name="tahun" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="" required  value="{{ $pegawai->kenaikanPangkat->tahun }}"/>
+                                                        <label for="tahun" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Tahun</label>
+                                                    </div>                      
                                                 </div>
                                             </div>
                                         </div>
@@ -831,7 +858,7 @@
                             </div>
                         </div>
 
-                        {{-- delete gaji --}}
+                        {{-- delete pangkat --}}
                         <div id="delete_jabatan" tabindex="-1" class="fixed top-0 left-0 right-0 z-50 hidden p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
                             <div class="relative w-full max-w-md max-h-full">
                                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -841,7 +868,7 @@
                                         </svg>
                                         <span class="sr-only">Close modal</span>
                                     </button>
-                                    <form action="{{ route('jabatan.delete',$pegawai->id) }}" method="POST">
+                                    <form action="{{ route('pangkat.delete',$pegawai->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                     <div class="p-6 text-center">
@@ -911,7 +938,7 @@
                         <div class="relative mt-3 sm:mt-0">
                             <label for="jenis_pendidikan" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2.5 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Jenis Pendidikan</label>
                             <select id="jenis_pendidikan" name="jenis_pendidikan" class="w-36 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                                <option selected>Pilih</option>
+                                <option value="" >Pilih</option>
                                 <option value="S2">S2</option>
                                 <option value="S1/D4">S1/D4</option>
                                 <option value="D3">D3</option>
@@ -1139,7 +1166,7 @@
                             <div class="relative mt-3 sm:mt-0">
                                 <label for="bulan" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2.5 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Bulan</label>
                                 <select id="bulan" name="bulan" class="w-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                                    <option selected>Pilih</option>
+                                    <option value="">Pilih</option>
                                     <option value="1">Januari</option>
                                     <option value="2">Februari</option>
                                     <option value="3">Maret</option>
@@ -1177,7 +1204,7 @@
         </div>
     </div>
     
-    {{-- tambah jabatan --}}
+    {{-- tambah pangkat --}}
     <div id="tambah_jabatan" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
         <div class="relative w-full max-w-2xl max-h-full">
             <!-- Modal content -->
@@ -1194,23 +1221,13 @@
                         <span class="sr-only">Close modal</span>
                     </button>
                 </div>
-                <form action="{{ route('jabatan.store',$pegawai->id) }}" method="POST" class="" enctype="multipart/form-data">
+                <form action="{{ route('pangkat.store',$pegawai->id) }}" method="POST" class="" enctype="multipart/form-data">
                     @method("POST")
                     @csrf
                     <!-- Modal body -->
                     <div class="p-6 space-y-6">
                         <div class="flex justify-evenly">                           
-                            <div class="relative mt-3 sm:mt-0">
-                                <label for="tanggal" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2.5 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Tanggal</label>
-                                <select id="tanggal" name="tanggal" class="w-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                                    <?php
-                                    $pilihanHari = range(1, 31);
-                                    foreach ($pilihanHari as $hari) {
-                                        echo '<option value="' . $hari . '">' . $hari . '</option>';
-                                    }
-                                    ?>
-                                </select>                           
-                            </div>
+                            
                             <div class="relative mt-3 sm:mt-0">
                                 <label for="bulan" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2.5 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Bulan</label>
                                 <select id="bulan" name="bulan" class="w-52 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
@@ -1228,6 +1245,12 @@
                                     <option value="11">November</option>
                                     <option value="12">Desember</option>
                                 </select>                           
+                            </div>
+                            <div class="relative mt-3 sm:mt-0">
+                                <div class="relative w-52">
+                                    <input type="number" id="tahun" name="tahun" class="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="" required />
+                                    <label for="tahun" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Tahun</label>
+                                </div>                      
                             </div>
                         </div>
                     </div>

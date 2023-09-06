@@ -16,16 +16,16 @@ class PegawaiChart
 
     public function build(): \ArielMejiaDev\LarapexCharts\HorizontalBar
     {      
-        $dataPegawai = Pegawai::where('jenis','pegawai')->count();
+        $dataPegawai = Pegawai::where('jenis','asn')->count();
         $dataTKD = Pegawai::where('jenis','tkd')->count();
 
         $total = $dataPegawai + $dataTKD;
         return $this->chart->horizontalBarChart()
             // ->setTitle('Banyak Pegawai dan TKD')
-            ->setSubtitle('Total Pegawai dan TKD: '. $total,'')
+            ->setSubtitle('Total ASN dan TKD: '. $total,'')
             ->setColors(['#327da8'])
             ->addData('Jumlah', [$dataPegawai,$dataTKD])
             // ->addData('TKD', [$dataTKD])
-            ->setXAxis(['Pegawai','TKD']);
+            ->setXAxis(['ASN','TKD']);
     }
 }

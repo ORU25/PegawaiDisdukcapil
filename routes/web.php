@@ -53,9 +53,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/pegawai/kenaikanGaji/store/{id}', [GajiController::class, 'store'])->name('gaji.store');
     Route::put('/pegawai/kenaikanGaji/{id}', [GajiController::class, 'update'])->name('gaji.update');
     Route::delete('/pegawai/kenaikanGaji/{id}', [GajiController::class, 'destroy'])->name('gaji.delete');
-    Route::post('/pegawai/kenaikanJabatan/store/{id}', [JabatanController::class, 'store'])->name('jabatan.store');
-    Route::put('/pegawai/kenaikanJabatan/{id}', [JabatanController::class, 'update'])->name('jabatan.update');
-    Route::delete('/pegawai/kenaikanJabatan/{id}', [JabatanController::class, 'destroy'])->name('jabatan.delete');
+    Route::post('/pegawai/kenaikanPangkat/store/{id}', [kenaikanPangkatController::class, 'store'])->name('pangkat.store');
+    Route::put('/pegawai/kenaikanPangkat/{id}', [kenaikanPangkatController::class, 'update'])->name('pangkat.update');
+    Route::delete('/pegawai/kenaikanPangkat/{id}', [kenaikanPangkatController::class, 'destroy'])->name('pangkat.delete');
+
+    Route::get('/jabatan', [JabatanController::class, 'index'])->name('jabatan');
+    Route::post('/jabatan/store', [JabatanController::class, 'store'])->name('jabatan.store');
+    Route::put('/jabatan//update/{id}', [JabatanController::class, 'update'])->name('jabatan.update');
+    Route::delete('/jabatan/{id}', [JabatanController::class, 'destroy'])->name('jabatan.delete');
 });
 
 require __DIR__.'/auth.php';

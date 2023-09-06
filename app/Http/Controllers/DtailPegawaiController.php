@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jabatan;
 use App\Models\Pegawai;
 use App\Models\Golongan;
 use Illuminate\Http\Request;
@@ -15,7 +16,8 @@ class DtailPegawaiController extends Controller
     public function index($nip)
     {
         $pegawai = Pegawai::where('nip', $nip)->first();
-        return view('pegawai.dtail')->with('pegawai',$pegawai);
+        $jabatan = Jabatan::all();
+        return view('pegawai.dtail')->with('pegawai',$pegawai)->with('jabatan',$jabatan);
     }
 
     /**
@@ -58,6 +60,7 @@ class DtailPegawaiController extends Controller
         $request->validate([
             'nama_lengkap' => 'required',
             // 'nip' => 'unique:pegawais',
+            'jabatan' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required | date',
             'jenis' => 'required',
@@ -69,7 +72,11 @@ class DtailPegawaiController extends Controller
             $pegawai->nama_lengkap = $request->nama_lengkap;
             // if($pegawai->nip == $request->nip){
                 $pegawai->nip = $request->nip;
-            // }
+                $pegawai->jabatan_id = $request->jabatan;
+                // }
+                if ($request->hp) {
+                    $pegawai->nik = $request->nik;
+                }
             if ($request->hp) {
                 $pegawai->hp = $request->hp;
             }else{
@@ -104,17 +111,21 @@ class DtailPegawaiController extends Controller
                 if($pegawai->golongan){
                     $golongan = $pegawai->golongan;
                     $golongan->golongan = $request->golongan;
+                    $golongan->pangkat = $request->pangkat;
                     $golongan->save();
     
                 }else{
                     $golongan = new Golongan;
                     $golongan->pegawai_id = $pegawai->id;
                     $golongan->golongan = $request->golongan;
+                    $golongan->pangkat = $request->pangkat;
                     $golongan->save();
                 }
             }else{
-                $golongan = $pegawai->golongan;
-                $golongan->delete();
+                if ($pegawai->golonga) {
+                    $golongan = $pegawai->golongan;
+                    $golongan->delete();
+                }
             }
         } catch (\Exception $e) {
             return redirect()->back()->with('errors','Pegawai Gagal Diedit');

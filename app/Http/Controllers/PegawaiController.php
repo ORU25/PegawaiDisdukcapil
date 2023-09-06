@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Pegawai;
 use App\Models\Golongan;
+use App\Models\Jabatan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -15,7 +16,8 @@ class PegawaiController extends Controller
     public function index()
     {
         $pegawai = Pegawai::all();
-        return view('pegawai.index')->with('pegawai',$pegawai);
+        $jabatan = Jabatan::all();
+        return view('pegawai.index')->with('pegawai',$pegawai)->with('jabatan',$jabatan);
     }
 
     /**
@@ -34,6 +36,8 @@ class PegawaiController extends Controller
         $request->validate([
             'nama_lengkap' => 'required',
             'nip' => 'required | unique:pegawais',
+            // 'nik' => 'required | unique:pegawais',
+            'jabatan' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required | date',
             'jenis' => 'required',
@@ -43,7 +47,12 @@ class PegawaiController extends Controller
         try {
             $pegawai = new Pegawai;
             $pegawai->nama_lengkap = $request->nama_lengkap;
+            if ($request->nik) {
+                # code...
+                $pegawai->nik = $request->nik;
+            }
             $pegawai->nip = $request->nip;
+            $pegawai->jabatan_id = $request->jabatan;
             if ($request->hp) {
                 $pegawai->hp = $request->hp;
             }
@@ -68,6 +77,8 @@ class PegawaiController extends Controller
             if($request->golongan){
                 $golongan = new Golongan;
                 $golongan->pegawai_id = $pegawai->id;
+                $golongan->golongan = $request->golongan;
+                $golongan->pangkat = $request->pangkat;
                 $golongan->save();
             }
         } catch (\Exception $e) {
@@ -166,6 +177,7 @@ class PegawaiController extends Controller
             return redirect()->back()->with('errors','Pegawai Gagal Dihapus');
         }
         $pegawai = Pegawai::all();
-        return view('pegawai.index')->with('sukses','Pegawai Berhasil Dihapus')->with('pegawai',$pegawai);
+        $jabatan = Jabatan::all();
+        return view('pegawai.index')->with('sukses','Pegawai Berhasil Dihapus')->with('pegawai',$pegawai)->with('jabatan',$jabatan);
     }
 }

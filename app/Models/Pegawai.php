@@ -11,8 +11,10 @@ class Pegawai extends Model
 
     protected $fillable = [
         'nama_lengkap',
+        'nik',
         'nip',
         'jenis',
+        'jabatan',
         'email',
         'hp',
         'jenis_kelamin',
@@ -35,9 +37,13 @@ class Pegawai extends Model
         return $this->hasOne(Golongan::class);
     }
     public function jabatan(){
-        return $this->hasOne(Jabatan::class);
+        return $this->belongsTo(Jabatan::class);
     }
     public function gaji(){
         return $this->hasOne(Gaji::class);
+    }
+
+    public function kenaikanPangkat(){
+        return $this->hasOne(kenaikanPangkat::class);
     }
 }

@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('jabatans', function (Blueprint $table) {
+        Schema::create('kenaikan_pangkat', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('pegawai_id');
             $table->foreign('pegawai_id')->references('id')->on('pegawais')->onDelete('cascade');
-            $table->unsignedBigInteger('tanggal');
             $table->unsignedBigInteger('bulan');
+            $table->unsignedBigInteger('tahun');
             $table->timestamps();
         });
     }

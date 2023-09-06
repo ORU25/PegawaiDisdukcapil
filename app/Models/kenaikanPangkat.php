@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Golongan extends Model
+class kenaikanPangkat extends Model
 {
     use HasFactory;
 
-    protected $fillabe = [
+    protected $table = 'kenaikan_pangkat';
+
+    protected $fillable = [
         'pegawai_id',
-        'golongan',
-        'pangkat'
+        'tahun',
+        'bulan'
     ];
 
     public function pegawai(){

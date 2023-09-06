@@ -10,12 +10,11 @@ class Jabatan extends Model
     use HasFactory;
 
     protected $fillable = [
-        'pegawai_id',
-        'tanggal',
-        'bulan'
+        'nama_jabatan',
+
     ];
 
     public function pegawai(){
-        return $this->belongsTo(Pegawai::class);
+        return $this->hasMany(Pegawai::class);
     }
 }
