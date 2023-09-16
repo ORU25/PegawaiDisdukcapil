@@ -265,7 +265,7 @@
                             <dt class="mb-1 text-gray-500 text-sm dark:text-gray-400">Jenis</dt>
                             <dd class="text-sm font-semibold">{{ $pegawai->jenis }}</dd>
                         </div>
-                        <div class="flex flex-col py-3">
+                        <div class="flex flex-col py-3 max-w-sm">
                             <dt class="mb-1 text-gray-500 text-sm dark:text-gray-400">Jabatan</dt>
                             <dd class="text-sm font-semibold">{{ $pegawai->jabatan->nama_jabatan }}</dd>
                         </div>
@@ -354,7 +354,7 @@
                             </div>
                         </div>
                         <ol class="relative border-l border-gray-200 dark:border-gray-700">   
-                            @forelse ($pegawai->riwayat_pendidikan->sortByDesc('tahun_lulus') as $pendidikan)    
+                            @forelse ($pegawai->riwayat_pendidikan->sortByDesc('tahun_lulus')->take(4) as $pendidikan)    
                             <li class="mb-5 ml-4">
                                 <div class="absolute w-3 h-3 bg-gray-200 rounded-full mt-1.5 -left-1.5 border border-white dark:border-gray-900 dark:bg-gray-700"></div>
                                 <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">{{ $pendidikan->tahun_lulus }}</time>
@@ -1100,7 +1100,7 @@
                         <div class="relative mt-3 sm:mt-0">
                             <label for="hubungan_keluarga" class="absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-white dark:bg-gray-900 px-2.5 peer-focus:px-2 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-75 peer-focus:-translate-y-4 left-1">Hubungan Keluarga</label>
                             <select id="hubungan_keluarga" name="hubungan_keluarga" class="w-36 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block  p-3 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                                <option selected>Pilih</option>
+                                <option selected value="">Pilih</option>
                                 <option value="Suami">Suami</option>
                                 <option value="Istri">Istri</option>
                                 <option value="Anak">Anak</option>

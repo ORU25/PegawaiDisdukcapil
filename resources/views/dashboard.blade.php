@@ -84,15 +84,15 @@
             </div>
             <div class="bg-white overflow-hidden shadow-sm rounded-lg mb-3">
                 <div class="me-10 ms-5 bg-white rounded text-center">
-                    <div class="my-16 sm:mx-16 mx-5">
+                    <div class="my-16 sm:mx-16  mx-10">
                         @if ($kadis)   
                             @foreach ($kadis->pegawai as $pegawai)                            
-                            <a href="{{ route('dtail',$pegawai->nip) }}" class="mb-5 flex flex-col items-center bg-gray-100 rounded-lg shadow lg:flex-row lg:max-w-xl hover:bg-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mx-auto">
-                                <img class="object-cover w-full rounded-t-lg h-96 lg:h-auto lg:w-48 lg:rounded-none lg:rounded-l-lg" src="{{ asset('foto_pegawai/'.$pegawai->foto) }}" alt="">
+                            <a href="{{ route('dtail',$pegawai->nip) }}" class=" mb-5 flex flex-col items-center bg-gray-100 rounded-lg shadow lg:flex-row lg:max-w-xl hover:bg-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mx-auto">
+                                <img class="object-cover w-full rounded-t-lg h-96 lg:h-auto lg:w-32 lg:rounded-none lg:rounded-l-lg" src="{{ asset('foto_pegawai/'.$pegawai->foto) }}" alt="">
                                 <div class="flex flex-col justify-between p-4 leading-normal">
-                                    <h5 class="text-left mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $pegawai->nama_lengkap}}</h5>
-                                    <p class="mb-3 font-normal text-cyan-700 dark:text-gray-400 text-left">{{ $pegawai->jabatan->nama_jabatan }}</p>
-                                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-left">NIP: {{ $pegawai->nip }}</p>
+                                    <h5 class="text-left mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">{{ $pegawai->nama_lengkap}}</h5>
+                                    <p class="mb-3 font-normal text-sm text-cyan-700 dark:text-gray-400 text-left">{{ $pegawai->jabatan->nama_jabatan }}</p>
+                                    <p class="mb-3 font-normal text-sm text-gray-700 dark:text-gray-400 text-left">NIP: {{ $pegawai->nip }}</p>
                                 </div>
                             </a>
 
@@ -104,12 +104,12 @@
                     
                         @if ($sekretaris)
                         @foreach ($sekretaris->pegawai as $pegawai)                            
-                        <a href="{{ route('dtail',$pegawai->nip) }}" class="mb-5 flex flex-col items-center bg-gray-100 rounded-lg shadow lg:flex-row lg:max-w-xl hover:bg-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mx-auto">
-                            <img class="object-cover w-full rounded-t-lg h-96 lg:h-auto lg:w-48 lg:rounded-none lg:rounded-l-lg" src="{{ asset('foto_pegawai/'.$pegawai->foto) }}" alt="">
+                        <a href="{{ route('dtail',$pegawai->nip) }}" class=" mb-5 flex flex-col items-center bg-gray-100 rounded-lg shadow lg:flex-row lg:max-w-xl hover:bg-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mx-auto">
+                            <img class="object-cover w-full rounded-t-lg h-96 lg:h-auto lg:w-32 lg:rounded-none lg:rounded-l-lg" src="{{ asset('foto_pegawai/'.$pegawai->foto) }}" alt="">
                             <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="text-left mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $pegawai->nama_lengkap}}</h5>
-                                <p class="mb-3 font-normal text-cyan-700 dark:text-gray-400 text-left">{{ $pegawai->jabatan->nama_jabatan }}</p>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-left">NIP: {{ $pegawai->nip }}</p>
+                                <h5 class="text-left mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">{{ $pegawai->nama_lengkap}}</h5>
+                                <p class="mb-3 font-normal text-sm text-cyan-700 dark:text-gray-400 text-left">{{ $pegawai->jabatan->nama_jabatan }}</p>
+                                <p class="mb-3 font-normal text-sm text-gray-700 dark:text-gray-400 text-left">NIP: {{ $pegawai->nip }}</p>
                             </div>
                         </a>
                         @endforeach
@@ -119,12 +119,12 @@
 
                         @if ($kabidDaduk)
                         @foreach ($kabidDaduk->pegawai as $pegawai)                            
-                        <a href="{{ route('dtail',$pegawai->nip) }}" class="mb-5 flex flex-col items-center bg-gray-100 rounded-lg shadow lg:flex-row lg:max-w-xl hover:bg-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mx-auto">
-                            <img class="object-cover w-full rounded-t-lg h-96 lg:h-auto lg:w-48 lg:rounded-none lg:rounded-l-lg" src="{{ asset('foto_pegawai/'.$pegawai->foto) }}" alt="">
+                        <a href="{{ route('dtail',$pegawai->nip) }}" class=" mb-5 flex flex-col items-center bg-gray-100 rounded-lg shadow lg:flex-row lg:max-w-xl hover:bg-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mx-auto">
+                            <img class="object-cover w-full rounded-t-lg h-96 lg:h-auto lg:w-32 lg:rounded-none lg:rounded-l-lg" src="{{ asset('foto_pegawai/'.$pegawai->foto) }}" alt="">
                             <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="text-left mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $pegawai->nama_lengkap}}</h5>
-                                <p class="mb-3 font-normal text-cyan-700 dark:text-gray-400 text-left">{{ $pegawai->jabatan->nama_jabatan }}</p>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-left">NIP: {{ $pegawai->nip }}</p>
+                                <h5 class="text-left mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">{{ $pegawai->nama_lengkap}}</h5>
+                                <p class="mb-3 font-normal text-sm text-cyan-700 dark:text-gray-400 text-left">{{ $pegawai->jabatan->nama_jabatan }}</p>
+                                <p class="mb-3 font-normal text-sm text-gray-700 dark:text-gray-400 text-left">NIP: {{ $pegawai->nip }}</p>
                             </div>
                         </a>
                         @endforeach 
@@ -135,12 +135,12 @@
 
                         @if ($kabidCapil)
                         @foreach ($kabidCapil->pegawai as $pegawai)                            
-                        <a href="{{ route('dtail',$pegawai->nip) }}" class="mb-5 flex flex-col items-center bg-gray-100 rounded-lg shadow lg:flex-row lg:max-w-xl hover:bg-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mx-auto">
-                            <img class="object-cover w-full rounded-t-lg h-96 lg:h-auto lg:w-48 lg:rounded-none lg:rounded-l-lg" src="{{ asset('foto_pegawai/'.$pegawai->foto) }}" alt="">
+                        <a href="{{ route('dtail',$pegawai->nip) }}" class=" mb-5 flex flex-col items-center bg-gray-100 rounded-lg shadow lg:flex-row lg:max-w-xl hover:bg-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mx-auto">
+                            <img class="object-cover w-full rounded-t-lg h-96 lg:h-auto lg:w-32 lg:rounded-none lg:rounded-l-lg" src="{{ asset('foto_pegawai/'.$pegawai->foto) }}" alt="">
                             <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="text-left mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $pegawai->nama_lengkap}}</h5>
-                                <p class="mb-3 font-normal text-cyan-700 dark:text-gray-400 text-left">{{ $pegawai->jabatan->nama_jabatan }}</p>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-left">NIP: {{ $pegawai->nip }}</p>
+                                <h5 class="text-left mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">{{ $pegawai->nama_lengkap}}</h5>
+                                <p class="mb-3 font-normal text-sm text-cyan-700 dark:text-gray-400 text-left">{{ $pegawai->jabatan->nama_jabatan }}</p>
+                                <p class="mb-3 font-normal text-sm text-gray-700 dark:text-gray-400 text-left">NIP: {{ $pegawai->nip }}</p>
                             </div>
                         </a>
                         @endforeach 
@@ -151,12 +151,12 @@
 
                         @if ($kabidPiak)    
                         @foreach ($kabidPiak->pegawai as $pegawai)                            
-                        <a href="{{ route('dtail',$pegawai->nip) }}" class="mb-5 flex flex-col items-center bg-gray-100 rounded-lg shadow lg:flex-row lg:max-w-xl hover:bg-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mx-auto">
-                            <img class="object-cover w-full rounded-t-lg h-96 lg:h-auto lg:w-48 lg:rounded-none lg:rounded-l-lg" src="{{ asset('foto_pegawai/'.$pegawai->foto) }}" alt="">
+                        <a href="{{ route('dtail',$pegawai->nip) }}" class=" mb-5 flex flex-col items-center bg-gray-100 rounded-lg shadow lg:flex-row lg:max-w-xl hover:bg-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 mx-auto">
+                            <img class="object-cover w-full rounded-t-lg h-96 lg:h-auto lg:w-32 lg:rounded-none lg:rounded-l-lg" src="{{ asset('foto_pegawai/'.$pegawai->foto) }}" alt="">
                             <div class="flex flex-col justify-between p-4 leading-normal">
-                                <h5 class="text-left mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $pegawai->nama_lengkap}}</h5>
-                                <p class="mb-3 font-normal text-cyan-700 dark:text-gray-400 text-left">{{ $pegawai->jabatan->nama_jabatan }}</p>
-                                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-left">NIP: {{ $pegawai->nip }}</p>
+                                <h5 class="text-left mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">{{ $pegawai->nama_lengkap}}</h5>
+                                <p class="mb-3 font-normal text-sm text-cyan-700 dark:text-gray-400 text-left">{{ $pegawai->jabatan->nama_jabatan }}</p>
+                                <p class="mb-3 font-normal text-sm text-gray-700 dark:text-gray-400 text-left">NIP: {{ $pegawai->nip }}</p>
                             </div>
                         </a>
                         @endforeach
